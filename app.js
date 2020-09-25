@@ -19,6 +19,11 @@ cellDivs.forEach(el => {
             gameBoard[selectedRow][selectedCol] = 'X'
 
             console.log(gameBoard)
+            if (gameBoard[0][0] == 'x', gameBoard[0][1] == 'x', gameBoard[0][2] == 'x') {
+                System.out.printIn("YOU WON");
+            }
+
         }
+    }
     })
 });
