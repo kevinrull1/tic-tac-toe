@@ -9,6 +9,7 @@ const cellDivs = document.querySelectorAll('.cell')
 cellDivs.forEach(el => {
     console.log(el)
     el.addEventListener('click', event => {
+        let GameOver = false
         const selectedCell = event.currentTarget
         const selectedRow = selectedCell.dataset.row
         const selectedCol = selectedCell.dataset.col
@@ -19,11 +20,24 @@ cellDivs.forEach(el => {
             gameBoard[selectedRow][selectedCol] = 'X'
 
             console.log(gameBoard)
-            if (gameBoard[0][0] == 'x', gameBoard[0][1] == 'x', gameBoard[0][2] == 'x') {
-                System.out.printIn("YOU WON");
-            }
+            if (gameBoard[0][0] == 'X' && gameBoard[0][1] == 'X' && gameBoard[0][2] == 'X') {
+                console.log('winner')
+                GameOver = true
 
+
+            }
+            if (gameBoard[1][0] == 'X' && gameBoard[1][1] == 'X' && gameBoard[1][2] == 'X') {
+                console.log('winner')
+            }
+            if (gameBoard[2][0] == 'X' && gameBoard[2][1] == 'X' && gameBoard[2][2] == 'X') {
+                console.log('winner')
+            }
+            if (gameBoard[0][0] == 'X' && gameBoard[1][1] == 'X' && gameBoard[2][2] == 'X') {
+                console.log('winner')
+            }
+            if (gameBoard[0][2] == 'X' && gameBoard[1][1] == 'X' && gameBoard[2][0] == 'X') {
+                console.log('winner')
+            }
         }
-    }
     })
 });
