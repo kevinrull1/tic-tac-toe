@@ -14,34 +14,13 @@ cellDivs.forEach(el => {
         const selectedRow = selectedCell.dataset.row
         const selectedCol = selectedCell.dataset.col
 
+
         if (gameBoard[selectedRow][selectedCol] == '-') {
             selectedCell.innerText = 'X'
 
             gameBoard[selectedRow][selectedCol] = 'X'
 
-            console.log(gameBoard)
-
-            if (gameBoard[0][0] == 'X' && gameBoard[0][1] == 'X' && gameBoard[0][2] == 'X') {
-                console.log('winner')
-                GameOver = true
-            }
-            if (gameBoard[1][0] == 'X' && gameBoard[1][1] == 'X' && gameBoard[1][2] == 'X') {
-                console.log('winner')
-            }
-            if (gameBoard[2][0] == 'X' && gameBoard[2][1] == 'X' && gameBoard[2][2] == 'X') {
-                console.log('winner')
-            }
-            if (gameBoard[0][0] == 'X' && gameBoard[1][1] == 'X' && gameBoard[2][2] == 'X') {
-                console.log('winner')
-            }
-            if (gameBoard[0][2] == 'X' && gameBoard[1][1] == 'X' && gameBoard[2][0] == 'X') {
-                console.log('winner')
-            }
-            if (!isGameOver()) {
-                // arvuti käib
-                emptyCell = getEmptyCell()
-            }
-            console.log(gameBoard)
+            console.log(isGameOver())
 
             getEmptyCell()
             do {
@@ -56,5 +35,12 @@ function getEmptyCell() {
 
 }
 function isGameOver() {
+    for (let i = 0; i < 3; i++) {
+
+        if (gameBoard[i][0] == gameBoard[i][1] && gameBoard[i][1] == gameBoard[i][2] && gameBoard[i][0] != '_') { 
+            return true
+        }
+    }
+    return false
 
 }
